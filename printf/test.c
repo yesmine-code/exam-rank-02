@@ -1,7 +1,14 @@
-#include"ft_printf.h"
+//#include"ft_printf.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdarg.h>
+#include <string.h>
+
+int ft_printf(const char *format, ...);
 int main()
 {
-   int i;
+  int i;
     printf("\n----------------------------\n");
     i = printf("%s|\n", "hello");
     printf("-%d-", i);
@@ -89,8 +96,12 @@ printf("----------------------------\n");
     ft_printf("%.4x|\n", -12);
     ft_printf("%10.0x|\n", -12);
     ft_printf("%10.12x|\n", -12);
-    printf("abc: %.000s, 12%10.3d, %4.6x\n", "yesmine", 1250, 205784);
-    ft_printf("abc: %.000s, 12%10.3d, %4.6x\n", "yesmine", 1250, 205784);
+	    char *str;
+    str = NULL;
+    printf("abc: %10.0s, 12%2.0d, %10.0x\n", str, -12 ,53543);
+    ft_printf("abc: %10.0s, 12%2.0d, %10.0x\n", str, -12, 53543);
+   /* ft_printf("|%d|\n", 2147483650);
+    ft_printf("|%d|\n", -2147483650);*/
 
 
 
