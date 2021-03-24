@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <string.h>
-
+#include <limits.h>
 int ft_printf(const char *format, ...);
 int main()
 {
@@ -100,12 +100,46 @@ printf("----------------------------\n");
     str = NULL;
     printf("abc: %10.0s, 12%2.0d, %10.0x\n", str, -12 ,53543);
     ft_printf("abc: %10.0s, 12%2.0d, %10.0x\n", str, -12, 53543);
-   /* ft_printf("|%d|\n", 2147483650);
-    ft_printf("|%d|\n", -2147483650);*/
+printf("----------------------------\n");
+printf("%7s%-5s\n", "hello", "world");
+ft_printf("%7s%-5s\n", "hello", "world");
+printf("----------------------------\n");
+printf("|%.03s|\n", NULL);
 
-
-
-    return 0;
+ft_printf("|%.03s|\n", NULL);
+printf("|%3.1s|\n", NULL);
+ft_printf("|%3.1s|\n", NULL);
+printf("|%9.1s|\n", NULL);
+ft_printf("|%9.1s|\n", NULL);
+printf("|%.0d|\n", 0);
+ft_printf("|%.0d|\n", 0);
+printf("|%.d|\n", 0);
+ft_printf("|%.d|\n", 0);
+printf("|%5.0d|\n", 0);
+ft_printf("|%5.0d|\n", 0);
+printf("|%5.d|\n", 0);
+ft_printf("|%5.d|\n", 0);
+printf("|%d|\n", INT_MIN);
+ft_printf("|%d|\n", INT_MIN);
+printf("|%d|\n", INT_MAX + 1);
+ft_printf("|%d|\n", INT_MAX + 1);
+printf("|%3.6s|\n", NULL);
+ft_printf("|%3.6s|\n", NULL);
+printf("|%20.6s|\n", NULL);
+ft_printf("|%20.6s|\n", NULL);
+printf("|%x|\n", 4294967295u);
+ft_printf("|%x|\n", 4294967295u);
+printf("Il fait au moins %x\n", -8000);
+ft_printf("Il fait au moins %x\n", -8000);
+printf("%x\n", INT_MIN);
+ft_printf("%x\n", INT_MIN);
+printf("%x\n", INT_MAX + 1);
+ft_printf("%x\n", INT_MAX + 1);
+i = printf("|%%|\n");
+printf("%d", i);
+i = ft_printf("|%%|\n");
+printf("%d", i);
+   return 0;
 }
 
 /*
